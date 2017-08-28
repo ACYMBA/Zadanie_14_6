@@ -30,5 +30,31 @@ var Counter = React.createClass({
     }
 });
 
-var element = React.createElement(Counter);
+var Counter2 = React.createClass({
+    getInitialState: function() {
+        return {
+            counter: 0
+        };
+    },
+
+    decrement: function() {
+        this.setState({
+            counter: this.state.counter + 1
+        });
+    },
+
+
+
+    render: function() {
+        return React.createElement('div', {onClick: this.decrement},
+            React.createElement('span', {}, 'Licznik drugi ' + this.state.counter)
+        );
+    }
+});
+
+var element =
+    React.createElement(Counter,
+    React.createElement(Counter2)
+    );
 ReactDOM.render(element, document.getElementById('app'));
+
