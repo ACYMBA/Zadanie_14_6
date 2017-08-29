@@ -18,6 +18,19 @@ var Counter = React.createClass({
         });
     },
     
+    shouldComponentUpdate() {
+       console.log('shouldComponentUpdate')
+    },
+    componentWillMount() {
+       console.log(' componentWillMount')
+    },
+    componentDidMount() {
+       console.log(' componentDidMount')
+    },
+    componentWillUnmount() {
+       console.log(' componentWillUnmount')
+    },
+
 
     render: function() {
         return React.createElement('div', {},
@@ -30,13 +43,15 @@ var Counter = React.createClass({
     }
 });
 
+
+
 var element = (
-    React.createElement('div', {}, 
+        React.createElement('div', {},
         React.createElement(Counter, {}),
         React.createElement(Counter, {}),
         React.createElement(Counter, {}),
         React.createElement(Counter, {})
-    )
+       )
 );
 ReactDOM.render(element, document.getElementById('app'));
 
